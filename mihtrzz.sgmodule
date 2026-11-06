@@ -1,0 +1,45 @@
+
+#!name=𝐙𝐞𝐫𝐞𝐟
+#!desc=𝐁𝐲: 𝐌𝐢𝐡𝐭𝐫𝐳𝐳
+
+# IG: Mihtrzz
+# Bản quyền thuộc về Mihtrzz
+
+[MITM]
+hostname=%APPEND% api.revenuecat.com,api.rc-backup.com,firebaseremoteconfig.googleapis.com,api.locketcamera.com,us-central1-alight-creative.cloudfunctions.net,photos.adobe.io,api.picsart.com,api-mobile.soundcloud.com,spclient.wg.spotify.com,premium*.truecaller.com,sub.store,api-sub.meitu.com
+
+[Script]
+
+# AlightMotion
+AlightMotion=type=http-response,pattern=https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,requires-body=true,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/alightmotion.js
+
+# Lightroom
+LightRoom=type=http-response,pattern=https:\/\/photos\.adobe\.io\/v2\/accounts*,requires-body=1,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/lightroom.js
+
+# Locket
+Revenuecat=type=http-response,pattern=https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$),requires-body=true,timeout=60,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/locket.js
+DeleteHeader=type=http-request,pattern=https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),timeout=60,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/deleteheader.js
+RemoteConfig=type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,requires-body=true,timeout=60,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/remoteconfig.js
+
+# PhotoRoom
+PhotoRoom=type=http-response,pattern=https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$),requires-body=1,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/photoroom.js
+
+# Picsart
+Picsart=type=http-request,pattern=https://api.picsart.com/gw-v2/shop/subscription/apple/purchases,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/picsart.js
+
+# SoundCloud
+SoundCloud=type=http-response,pattern=https://api-mobile.soundcloud.com/configuration/ios,requires-body=1,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/soundcloud.js
+
+# Spotify
+Spotifylyric=type=http-response,pattern=https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/spotifylyrics.js
+Spotifyjson=type=http-request,type=http-request,pattern=https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/spotifyjson.js
+Spotifyproto=type=http-response,pattern=https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-mode=1,max-size=0,script-update-interval=0,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/spotifyproto.js
+
+# Truecaller
+Truecaller=type=http-response,pattern=^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple),requires-body=1,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/truecaller.js
+
+# Vsco
+Vsco=type=http-request,pattern=https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$),script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/vsco.js
+
+# Wink
+Wink=type=http-response,pattern=https?:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info_by_group\.json,requires-body=1,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/wink.js
