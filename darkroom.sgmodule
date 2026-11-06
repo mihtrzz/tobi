@@ -1,0 +1,14 @@
+
+#!name=𝐃𝐚𝐫𝐤𝐫𝐨𝐨𝐦
+#!desc=𝐁𝐲: 𝐌𝐢𝐡𝐭𝐫𝐳𝐳
+
+# IG: Mihtrzz
+# Bản quyền thuộc về Mihtrzz
+
+[MITM]
+hostname=api.revenuecat.com
+
+[Script]
+
+# Darkroom
+Darkroom=type=http-response,pattern=https://api.revenuecat.com/v1/(receipts|subscribers)/*,requires-body=1,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/darkroom.js
