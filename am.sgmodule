@@ -1,0 +1,14 @@
+
+#!name=𝐀𝐥𝐢𝐠𝐡𝐭𝐌𝐨𝐭𝐢𝐨𝐧
+#!desc=𝐁𝐲: 𝐌𝐢𝐡𝐭𝐫𝐳𝐳
+
+# IG: Mihtrzz
+# Bản quyền thuộc về Mihtrzz
+
+[MITM]
+hostname=api.revenuecat.com,us-central1-alight-creative.cloudfunctions.net
+
+[Script]
+
+# AlightMotion
+AlightMotion=type=http-response,pattern=https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,requires-body=true,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/alightmotion.js
