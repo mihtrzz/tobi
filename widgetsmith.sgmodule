@@ -1,0 +1,14 @@
+
+#!name=𝐖𝐢𝐝𝐠𝐞𝐭𝐬𝐦𝐢𝐭𝐡
+#!desc=𝐁𝐲: 𝐌𝐢𝐡𝐭𝐫𝐳𝐳
+
+# IG: Mihtrzz
+# Bản quyền thuộc về Mihtrzz
+
+[MITM]
+hostname=api.revenuecat.com
+
+[Script]
+
+# Widgetsmith
+Widgetsmith=type=http-response,pattern=https://api.revenuecat.com/v1/(receipts|subscribers)/*,requires-body=1,script-path=https://raw.githubusercontent.com/mihtrzz/rin/refs/heads/json/widgetsmith.js
